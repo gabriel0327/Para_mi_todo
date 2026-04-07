@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para el amor de mi vida 💖</title>
+
+  <!-- Tipografías románticas -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       PLAYER DE YOUTUBE – Danny Ocean · Corazón
+       El iframe está oculto; JS lo activa al hacer clic
+  ══════════════════════════════════════════ -->
+  <div id="yt-wrapper">
+    <iframe
+      id="yt-player"
+      src="https://www.youtube.com/embed/M_JV0f4HHFU?enablejsapi=1&autoplay=0&loop=1&playlist=M_JV0f4HHFU&controls=0&mute=0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="Danny Ocean – Corazón"
+    ></iframe>
+  </div>
+  <div id="player"></div>
+
+<script>
+let player;
+
+function cargarYouTubeAPI() {
+  if (document.getElementById('yt-api-script')) return;
+
+  const tag = document.createElement('script');
+  tag.id = 'yt-api-script';
+  tag.src = 'https://www.youtube.com/iframe_api';
+
+  const first = document.getElementsByTagName('script')[0];
+  first.parentNode.insertBefore(tag, first);
+}
+
+// YouTube llama automáticamente esta función
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '0',
+    width: '0',
+    videoId: 'cTn_NRZRIa8',
+    playerVars: {
+      autoplay: 1,
+      loop: 1,
+      playlist: 'cTn_NRZRIa8',
+      mute: 1 // 🔥 necesario para que autoplay funcione
+    },
+    events: {
+      onReady: function (event) {
+        event.target.playVideo();
+      }
+    }
+  });
+}
+
+// Cargar API
+cargarYouTubeAPI();
+</script>
+
+  <!-- Canvas de fondo estelar -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ═══════════════════════════ APP ═══════════════════════════ -->
+  <div id="app">
+
+    <!-- ── Pantalla inicial ── -->
+    <section id="intro">
+      <div class="crown">👑</div>
+      <h1 class="title">Para el amor de mi vida 💖</h1>
+      <p class="subtitle">Hay algo especial esperando por ti…</p>
+      <button id="btn-start" onclick="iniciarExperiencia()">Haz clic aquí 💖</button>
+    </section>
+
+    <!-- ── Mensajes románticos ── -->
+    <section id="messages-section">
+
+      <div class="msg-card" id="msg1">
+        <span class="icon">🌹</span>
+        "Desde que llegaste, todo es más bonito"
+      </div>
+
+      <div class="msg-card" id="msg2">
+        <span class="icon">✨</span>
+        "Eres mi lugar favorito en este mundo"
+      </div>
+
+      <div class="msg-card" id="msg3">
+        <span class="icon">🌙</span>
+        "Cada día a tu lado es el día más especial"
+      </div>
+
+      <div class="msg-card" id="msg4">
+        <span class="icon">💐</span>
+        "Gracias por estar conmigo, por tu risa, por tu luz"
+      </div>
+
+      <div class="msg-card" id="msg5">
+        <span class="icon">💖</span>
+        "Te elijo hoy, mañana y siempre"
+      </div>
+
+    <!-- ── Mensaje especial 6 meses ── -->
+<div class="msg-card msg-special" id="msg6">
+  <span class="icon">🎀</span>
+  <span class="special-label">¡Felices 6 meses!</span>
+
+  <!-- Imagen -->
+  <div class="special-img">
+    <img src="nosotros.jpeg" alt="Nosotros">
+  </div>
+
+  Mi princesa 👸🏻 · mi bella durmiente 🌙 · mi cuchurrumin 🐻<br/>
+  mi todo 🌍 · mi niña preciosa 🌸 · mi chiquita…
+  <br/><br/>
+  Gracias por cada abrazo, cada risa y cada momento<br/>
+  que has pintado de color mi vida.<br/>
+  Eres lo más bonito que me ha pasado.<br/>
+  <strong>Te amo infinito. 💖✨</strong>
+</div>
+    </section>
+
+    <!-- ── Sección final ── -->
+    <section id="final-section">
+      <p class="question">¿Quieres seguir compartiendo momentos conmigo? 💕</p>
+      <div class="btn-row">
+        <button id="btn-yes" onclick="respuestaSi()">Sí 💖</button>
+        <button id="btn-no"
+                onmouseover="escaparBoton(this)"
+                ontouchstart="escaparBoton(this)">No 😢</button>
+      </div>
+    </section>
+
+    <!-- ── Pantalla "¡Sí!" ── -->
+    <section id="yes-screen">
+      <p class="heart-big">💖</p>
+      <p class="yes-title">¡Lo sabía!</p>
+      <p class="yes-msg">
+        Eres la persona más hermosa que ha pasado por mi vida.<br/>
+        Juntos somos perfectos. 🌹✨
+      </p>
+      <p class="emojis-fin">🥂💫🌹</p>
+    </section>
+
+  </div><!-- /app -->
+
+  <!-- JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+</html>
